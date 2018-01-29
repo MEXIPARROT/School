@@ -36,8 +36,10 @@ public class Controller : MonoBehaviour {
 		direction = direction.normalized;
 		walkingVelocity = direction * speed;
 		controller.Move(walkingVelocity * Time.deltaTime);
-		if(direction != Vector3.zero)
+		if(direction != Vector3.zero) {
 			transform.forward = direction;
+			Debug.Log(direction);
+		}
 
 		bool isGrounded = Physics.CheckSphere(feet.position, distanceToGround, ground, QueryTriggerInteraction.Ignore);	
 		if(isGrounded)
